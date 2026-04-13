@@ -1,6 +1,6 @@
 cask "lovaslap" do
   version "0.1.2"
-  sha256 "695abbcfa9791afc463573373718d764065e9f37e195661d493a5f340c11bf7f"
+  sha256 "b9fc28a0b70cd24bc7f460aa9370920d16ddd0cf0e6482caa1c2f214fa40493d"
 
   url "https://github.com/heodongun/LovaSlap/releases/download/v#{version}/MiyeonSlap.zip"
   name "MiyeonSlap"
