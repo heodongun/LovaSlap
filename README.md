@@ -28,10 +28,11 @@ LovaSlap은 macOS용 AppKit 기반 도트 감성 미니 미연시 **MiyeonSlap**
 
 ## Homebrew로 설치
 
-아래 명령으로 바로 설치할 수 있습니다.
+아래처럼 탭을 추가한 뒤 설치하면 됩니다.
 
 ```bash
-brew install --cask https://raw.githubusercontent.com/heodongun/LovaSlap/main/Casks/lovaslap.rb
+brew tap heodongun/LovaSlap https://github.com/heodongun/LovaSlap
+brew install --cask heodongun/LovaSlap/lovaslap
 ```
 
 ## 직접 실행
