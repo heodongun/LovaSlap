@@ -1,0 +1,6 @@
+.build/
+dist/
+MiyeonSlap.app/
+qa-*.png
+*.log
+.sisyphus/
