@@ -53,4 +53,6 @@ cat > "$CONTENTS_DIR/Info.plist" <<'EOF'
 </plist>
 EOF
 
+codesign --force --deep --sign - "$BUNDLE_DIR"
+
 printf 'Built app bundle at %s\n' "$BUNDLE_DIR"
