@@ -1,99 +1,100 @@
 # LovaSlap
 
-LovaSlap packages **MiyeonSlap**, a cute AppKit-based pixel-art slap-reactive mini visual novel for macOS.
+LovaSlap은 macOS용 AppKit 기반 도트 감성 미니 미연시 **MiyeonSlap** 저장소입니다.
 
-It supports two reaction paths:
+이 앱은 이제 **클릭으로 반응하지 않고**, **실제로 맥북 본체를 쳤을 때만** 반응하도록 맞춰져 있습니다.
 
-- **in-window slap** by clicking Miyeon
-- **real MacBook motion slap detection** through Apple Silicon `AppleSPUHIDDevice` sensor access
+## 특징
 
-The app is intentionally small: one scene, one heroine, one dialogue panel, and one shared slap reaction pipeline.
+- AppKit 기반 macOS 앱
+- 귀엽고 따뜻한 톤의 도트 스타일 화면
+- 한 장면 중심의 미니 미연시 구성
+- Apple Silicon 맥북에서 실제 본체 충격을 감지해 반응
 
-## Requirements
+## 요구 사항
 
-- macOS 13+
-- Apple Silicon MacBook for the real-device slap path
+- macOS 13 이상
+- Apple Silicon MacBook
 
-## Download
+실제 맥북을 쳤을 때 반응하는 기능은 Apple Silicon 하드웨어 경로에 의존합니다.
 
-Download the latest release from:
+## 다운로드
+
+최신 릴리즈는 여기에서 받을 수 있습니다.
 
 - https://github.com/heodongun/LovaSlap/releases
 
-The release artifact is `MiyeonSlap.zip`.
+배포 파일 이름은 `MiyeonSlap.zip` 입니다.
 
-## Homebrew install
+## Homebrew로 설치
 
-You can install the app directly from this repository's cask file:
+아래 명령으로 바로 설치할 수 있습니다.
 
 ```bash
 brew install --cask https://raw.githubusercontent.com/heodongun/LovaSlap/main/Casks/lovaslap.rb
 ```
 
-## Run manually
+## 직접 실행
 
-If you download the ZIP yourself:
+릴리즈 ZIP을 직접 받았다면:
 
 ```bash
 unzip MiyeonSlap.zip
 open MiyeonSlap.app
 ```
 
-## Private API / workaround notes
+## 우회 / 주의 사항
 
-The real MacBook slap path uses Apple Silicon `AppleSPUHIDDevice` sensor access through IOKit HID. This is **not a public stable macOS API**.
+이 앱의 실제 맥북 충격 반응은 Apple Silicon의 `AppleSPUHIDDevice` 센서 경로를 사용합니다. 이 방식은 **공식적으로 안정성이 보장된 공개 macOS API가 아닙니다.**
 
-What that means in practice:
+즉, 아래 사항을 알고 있어야 합니다.
 
-- the click-to-slap path works as the normal baseline interaction
-- the real-device slap path is Apple Silicon specific
-- future macOS updates may break the hardware path
-- unsigned local builds or downloaded releases may need Gatekeeper quarantine removal before launch
+- 실제 본체를 쳤을 때 반응하는 기능은 Apple Silicon 맥북에서만 기대할 수 있습니다.
+- macOS 업데이트에 따라 동작이 바뀌거나 깨질 수 있습니다.
+- 다운로드한 앱은 Gatekeeper 또는 quarantine 속성 때문에 바로 실행되지 않을 수 있습니다.
 
-If macOS blocks launch after download, run:
+앱 실행이 막히면 아래처럼 quarantine 속성을 제거한 뒤 다시 실행하면 됩니다.
 
 ```bash
 xattr -dr com.apple.quarantine MiyeonSlap.app
 open MiyeonSlap.app
 ```
 
-If the hardware slap path does not react strongly enough on your machine, the app itself still opens and works with click slaps. The hardware path depends on private sensor behavior and may require threshold tuning per machine or OS version.
+또한 기기별로 충격 감도 차이가 있을 수 있습니다. 센서 동작 특성상 어떤 맥북에서는 더 세게 쳐야 반응할 수도 있습니다.
 
-## Build from source
+## 소스에서 빌드
 
 ```bash
 swift build
 swift run
 ```
 
-To generate the app icon assets:
+## 앱 아이콘 생성
 
 ```bash
 swift scripts/generate_app_icon.swift
 ```
 
-To build a Finder-openable app bundle:
+## Finder에서 바로 열 수 있는 앱 번들 생성
 
 ```bash
 zsh scripts/build_app_bundle.sh
 ```
 
-## Release packaging
-
-To build the app bundle and zip it for release:
+## 릴리즈용 ZIP 만들기
 
 ```bash
 zsh scripts/package_release_zip.sh
 ```
 
-This creates:
+생성 결과:
 
 - `MiyeonSlap.app`
 - `dist/MiyeonSlap.zip`
 
-## Repository layout
+## 저장소 구조
 
-- `Sources/MiyeonSlap/` — AppKit app source
-- `Assets/AppIcon/` — generated app icon assets
-- `Casks/lovaslap.rb` — Homebrew cask for release installs
-- `scripts/` — icon generation, bundle building, and release packaging
+- `Sources/MiyeonSlap/` — AppKit 앱 소스
+- `Assets/AppIcon/` — 생성된 앱 아이콘 리소스
+- `Casks/lovaslap.rb` — Homebrew cask 파일
+- `scripts/` — 아이콘 생성, 앱 번들 생성, 릴리즈 패키징 스크립트
