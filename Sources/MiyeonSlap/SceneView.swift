@@ -89,7 +89,7 @@ final class GameSceneView: NSView {
 final class DialoguePanelView: NSView {
     private let speakerLabel = NSTextField(labelWithString: "")
     private let dialogueLabel = NSTextField(wrappingLabelWithString: "")
-    private let instructionLabel = NSTextField(labelWithString: "hit macbook")
+    private let instructionLabel = NSTextField(labelWithString: "맥북 본체를 톡 쳐 보세요")
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -190,16 +190,22 @@ final class PixelCharacterView: NSView {
         drawPixelRect(x: 14, y: 8, w: 1, h: 3, color: ScenePalette.skin, pixel: pixel, originX: originX, originY: originY)
         drawPixelRect(x: 6, y: 12, w: 8, h: 1, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
 
-        drawPixelRect(x: 5, y: 12, w: 10, h: 9, color: ScenePalette.hairShadow, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 6, y: 13, w: 8, h: 7, color: ScenePalette.skin, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 4, y: 13, w: 2, h: 7, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 14, y: 13, w: 2, h: 7, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 5, y: 20, w: 10, h: 3, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 6, y: 23, w: 8, h: 1, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 4, y: 22, w: 2, h: 2, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 14, y: 22, w: 2, h: 2, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 7, y: 15, w: 1, h: 1, color: ScenePalette.blush, pixel: pixel, originX: originX, originY: originY)
-        drawPixelRect(x: 12, y: 15, w: 1, h: 1, color: ScenePalette.blush, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 5, y: 13, w: 10, h: 7, color: ScenePalette.hairShadow, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 7, y: 13, w: 6, h: 1, color: ScenePalette.skin, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 6, y: 14, w: 8, h: 5, color: ScenePalette.skin, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 7, y: 19, w: 6, h: 1, color: ScenePalette.skin, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 4, y: 14, w: 2, h: 6, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 14, y: 14, w: 2, h: 6, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 5, y: 13, w: 1, h: 1, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 14, y: 13, w: 1, h: 1, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 7, y: 18, w: 6, h: 1, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 6, y: 20, w: 8, h: 2, color: ScenePalette.hair, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 8, y: 23, w: 4, h: 1, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 6, y: 22, w: 2, h: 2, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 12, y: 22, w: 2, h: 2, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 9, y: 21, w: 2, h: 2, color: ScenePalette.accentRose, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 7, y: 15, w: 2, h: 1, color: ScenePalette.blush, pixel: pixel, originX: originX, originY: originY)
+        drawPixelRect(x: 11, y: 15, w: 2, h: 1, color: ScenePalette.blush, pixel: pixel, originX: originX, originY: originY)
 
         drawFace(pixel: pixel, originX: originX, originY: originY)
 
@@ -211,23 +217,25 @@ final class PixelCharacterView: NSView {
     private func drawFace(pixel: CGFloat, originX: CGFloat, originY: CGFloat) {
         switch mood {
         case .calm:
+            drawPixelRect(x: 7, y: 18, w: 2, h: 1, color: ScenePalette.hairShadow, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 11, y: 18, w: 2, h: 1, color: ScenePalette.hairShadow, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 8, y: 17, w: 1, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 11, y: 17, w: 1, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
-            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.ribbon, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.accentRose, pixel: pixel, originX: originX, originY: originY)
         case .startled:
             drawPixelRect(x: 8, y: 16, w: 1, h: 2, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 11, y: 16, w: 1, h: 2, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
-            drawPixelRect(x: 9, y: 14, w: 2, h: 2, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 9, y: 14, w: 2, h: 2, color: ScenePalette.accentRose, pixel: pixel, originX: originX, originY: originY)
         case .pout:
-            drawPixelRect(x: 7, y: 18, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
-            drawPixelRect(x: 11, y: 17, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
-            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 7, y: 17, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 11, y: 16, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.accentRose, pixel: pixel, originX: originX, originY: originY)
         case .dizzy:
             drawPixelRect(x: 7, y: 16, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 8, y: 17, w: 1, h: 2, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 11, y: 16, w: 2, h: 1, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
             drawPixelRect(x: 11, y: 17, w: 1, h: 2, color: ScenePalette.eye, pixel: pixel, originX: originX, originY: originY)
-            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.accentSky, pixel: pixel, originX: originX, originY: originY)
+            drawPixelRect(x: 9, y: 14, w: 2, h: 1, color: ScenePalette.accentRose, pixel: pixel, originX: originX, originY: originY)
         }
     }
 
