@@ -41,6 +41,15 @@ brew install --cask heodongun/LovaSlap/lovaslap
 
 ```bash
 unzip MiyeonSlap.zip
+```
+
+이 앱은 현재 **정식 Developer ID 서명 / notarization 이 적용되지 않은 배포본**입니다. 그래서 브라우저로 받은 ZIP을 바로 풀고 `open MiyeonSlap.app` 만 실행하면 macOS가 차단할 수 있습니다.
+
+직접 다운로드한 경우에는 아래 순서로 실행하는 것을 기준 경로로 생각하면 됩니다.
+
+```bash
+unzip MiyeonSlap.zip
+xattr -dr com.apple.quarantine MiyeonSlap.app
 open MiyeonSlap.app
 ```
 
@@ -53,6 +62,7 @@ open MiyeonSlap.app
 - 실제 본체를 쳤을 때 반응하는 기능은 Apple Silicon 맥북에서만 기대할 수 있습니다.
 - macOS 업데이트에 따라 동작이 바뀌거나 깨질 수 있습니다.
 - 다운로드한 앱은 Gatekeeper 또는 quarantine 속성 때문에 바로 실행되지 않을 수 있습니다.
+- 즉, **직접 다운로드 경로에서는 quarantine 제거가 사실상 필요할 수 있습니다.**
 
 앱 실행이 막히면 아래처럼 quarantine 속성을 제거한 뒤 다시 실행하면 됩니다.
 
