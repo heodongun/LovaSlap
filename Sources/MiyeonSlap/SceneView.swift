@@ -89,7 +89,7 @@ final class GameSceneView: NSView {
 final class DialoguePanelView: NSView {
     private let speakerLabel = NSTextField(labelWithString: "")
     private let dialogueLabel = NSTextField(wrappingLabelWithString: "")
-    private let instructionLabel = NSTextField(labelWithString: "slap macbook")
+    private let instructionLabel = NSTextField(labelWithString: "hit macbook")
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

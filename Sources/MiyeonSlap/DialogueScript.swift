@@ -17,7 +17,7 @@ final class DialogueScript {
     private let lines: [DialogueLine] = [
         DialogueLine(
             speaker: "Miyeon",
-            text: "H-hi... if you're going to tap me, at least be cute about it.",
+            text: "H-hi... if you're going to smack the laptop, at least be cute about it.",
             mood: .calm
         ),
         DialogueLine(
