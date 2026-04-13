@@ -16,23 +16,23 @@ struct DialogueLine: Equatable {
 final class DialogueScript {
     private let lines: [DialogueLine] = [
         DialogueLine(
-            speaker: "Miyeon",
-            text: "H-hi... if you're going to smack the laptop, at least be cute about it.",
+            speaker: "미연",
+            text: "히잉... 맥북을 톡 칠 거면, 조금은 귀엽게 해 줘.",
             mood: .calm
         ),
         DialogueLine(
-            speaker: "Miyeon",
-            text: "Ack— rude! My ribbon almost flew off just now.",
+            speaker: "미연",
+            text: "앗, 너무해! 방금 리본이 날아갈 뻔했잖아.",
             mood: .startled
         ),
         DialogueLine(
-            speaker: "Miyeon",
-            text: "You really are committing to the bit, huh? I am judging you softly.",
+            speaker: "미연",
+            text: "끝까지 이 콘셉트로 가네...? 나, 지금 조용히 삐졌어.",
             mood: .pout
         ),
         DialogueLine(
-            speaker: "Miyeon",
-            text: "Wah... stars... okay, okay, I get it. That's enough slapping for one scene.",
+            speaker: "미연",
+            text: "으으... 별 돈다... 알겠어. 오늘은 여기까지만 톡 쳐 줘.",
             mood: .dizzy
         )
     ]

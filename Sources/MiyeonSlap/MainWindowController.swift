@@ -11,7 +11,7 @@ final class MainWindowController: NSWindowController {
             defer: false
         )
 
-        window.title = "Miyeon Slap"
+        window.title = "미연 슬랩"
         window.backgroundColor = ScenePalette.windowBackground
         window.center()
         window.setContentSize(windowSize)
