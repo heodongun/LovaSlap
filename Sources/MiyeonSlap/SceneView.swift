@@ -32,10 +32,6 @@ final class GameSceneView: NSView {
         characterView.translatesAutoresizingMaskIntoConstraints = false
         dialoguePanel.translatesAutoresizingMaskIntoConstraints = false
 
-        characterView.onTap = { [weak self] in
-            self?.handleSlap()
-        }
-
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -52,10 +48,6 @@ final class GameSceneView: NSView {
             characterView.widthAnchor.constraint(equalToConstant: 280),
             characterView.heightAnchor.constraint(equalToConstant: 340)
         ])
-    }
-
-    private func handleSlap() {
-        triggerSharedSlap()
     }
 
     func triggerPhysicalSlap() {
@@ -97,7 +89,7 @@ final class GameSceneView: NSView {
 final class DialoguePanelView: NSView {
     private let speakerLabel = NSTextField(labelWithString: "")
     private let dialogueLabel = NSTextField(wrappingLabelWithString: "")
-    private let instructionLabel = NSTextField(labelWithString: "click miyeon")
+    private let instructionLabel = NSTextField(labelWithString: "slap macbook")
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -159,8 +151,6 @@ final class DialoguePanelView: NSView {
 
 @MainActor
 final class PixelCharacterView: NSView {
-    var onTap: (() -> Void)?
-
     private var mood: CharacterMood = .calm
     private var reaction = ReactionVisual(spriteOffset: .zero, showImpactBurst: false)
 
@@ -168,9 +158,6 @@ final class PixelCharacterView: NSView {
         super.init(frame: frameRect)
         wantsLayer = true
         layer?.backgroundColor = NSColor.clear.cgColor
-
-        let clickGesture = NSClickGestureRecognizer(target: self, action: #selector(handleTap))
-        addGestureRecognizer(clickGesture)
     }
 
     @available(*, unavailable)
@@ -182,14 +169,6 @@ final class PixelCharacterView: NSView {
         self.mood = mood
         self.reaction = reaction
         needsDisplay = true
-    }
-
-    override func resetCursorRects() {
-        addCursorRect(bounds, cursor: .pointingHand)
-    }
-
-    @objc private func handleTap() {
-        onTap?()
     }
 
     override func draw(_ dirtyRect: NSRect) {
